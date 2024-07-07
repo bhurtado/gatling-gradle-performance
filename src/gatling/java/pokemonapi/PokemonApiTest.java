@@ -15,6 +15,7 @@ import static io.gatling.javaapi.http.HttpDsl.*;
 public class PokemonApiTest extends Simulation {
     // Case 1 - Como puedo testearlo en diferentes ambientes
     String baseUrl = System.getProperty("baseUrl", "https://pokeapi.co/api/v2/pokemon");
+    String concurrentUsers = System.getProperty("concurrentUsers", "5");
     // Define the data
     FeederBuilder.FileBased<Object> feeder = jsonFile("data/pokemon.json").circular();
     // Define preconditions
@@ -54,12 +55,16 @@ public class PokemonApiTest extends Simulation {
 
     {
         setUp(
-                scn.injectOpen(   //Closed constantConcurrentUsers(10).during(Duration.ofSeconds(20))
-                        atOnceUsers(10),
-                        nothingFor(Duration.ofSeconds(5)),
-                        rampUsers(10).during(Duration.ofSeconds(10)),
-                        constantUsersPerSec(20).during(Duration.ofSeconds(10))
+                scn.injectClosed(
+                        constantConcurrentUsers(Integer.parseInt(concurrentUsers)).during(Duration.ofSeconds(10)
+                        )
                 )
+//                scn.injectOpen(   //Closed constantConcurrentUsers(10).during(Duration.ofSeconds(20))
+//                        atOnceUsers(10),
+//                        nothingFor(Duration.ofSeconds(5)),
+//                        rampUsers(10).during(Duration.ofSeconds(10)),
+//                        constantUsersPerSec(20).during(Duration.ofSeconds(10))
+//                )
         ).protocols(httpProtocol);
     }
 
