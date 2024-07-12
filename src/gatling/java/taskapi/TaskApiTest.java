@@ -1,12 +1,10 @@
 package taskapi;
 
-import demostore.DemostoreApiSimulation;
 import io.gatling.javaapi.core.*;
 import io.gatling.javaapi.http.*;
 
 import java.time.Duration;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import static io.gatling.javaapi.core.CoreDsl.*;
@@ -15,7 +13,7 @@ import static io.gatling.javaapi.http.HttpDsl.*;
 public class TaskApiTest extends Simulation {
 
     private final HttpProtocolBuilder httpProtocol = http
-            .baseUrl("https://api.restful-api.dev/")
+            .baseUrl("https://api.restful-api.dev")
             .acceptHeader("application/json");
 
     private final FeederBuilder<Object> feeder = jsonFile("data/data.json").circular();
