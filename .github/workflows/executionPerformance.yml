@@ -4,15 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       testSuite:
-        type: string
-        description: 'testSuite'
+        type: choice
+        description: 'Select the test suite to run'
         required: true
+        options:
+          - pokemonapi.PokemonApiTest
+          - taskapi.TaskApiTest
         default: 'pokemonapi.PokemonApiTest'
-      concurrent:
-        type: string
-        description: 'Quantity of users'
-        required: true
-        default: '10'
 
 jobs:
   execpokemonapi:
@@ -62,7 +60,7 @@ jobs:
         uses: gradle/gradle-build-action@v3
 
       - name: Execute test
-        run: gradle gatlingRun --simulation=simulations.TaskApiTest -DconcurrentUsers=${{ inputs.concurrent }}
+        run: gradle gatlingRun --simulation=${{ inputs.testSuite }} -DconcurrentUsers=${{ inputs.concurrent }}
 
       - name: Save report
         if: ${{always()}}
