@@ -1,4 +1,3 @@
-
 package taskapi;
 
 import io.gatling.javaapi.core.*;
