@@ -60,10 +60,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
+          
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
-
+          
       - name: Execute test
         run: gradle gatlingRun --simulation=${{ inputs.testSuite }} -DconcurrentUsers=${{ inputs.concurrent }}
 
@@ -83,7 +83,7 @@ jobs:
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
-          publish_branch: gh_page
+          publish_branch: gh_pages
 
       - name: Deploy report to Github Pages
         if: always()
