@@ -10,12 +10,12 @@ on:
         options:
           - pokemonapi.PokemonApiTest
           - taskapi.TaskApiTest
-                concurrent:
+        default: 'pokemonapi.PokemonApiTest'
+      concurrent:
         type: string
         description: 'Quantity of users'
         required: true
         default: '10'
-        default: 'pokemonapi.PokemonApiTest'
 
 jobs:
   execpokemonapi:
