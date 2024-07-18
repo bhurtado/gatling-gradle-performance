@@ -42,7 +42,7 @@ jobs:
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './build/reports/gatling'
+          publish_dir: ./build/reports/gatling/pokemonapitest-20240926191634473
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -53,7 +53,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
+          PUBLISH_DIR: ./pokemonapitest-20240926191634473
   exectaskapi:
     runs-on: ubuntu-latest
     name: Execution Performance Task API
@@ -79,7 +79,7 @@ jobs:
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './taskapitest-20240717185816110'
+          publish_dir: ./taskapitest-20240926190514608
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -91,4 +91,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
+          PUBLISH_DIR: ./taskapitest-20240926190514608
