@@ -72,7 +72,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: gatling report
-          path: ./build/reports/gatling
+          path: .taskapitest-20240717185816110
 
       - name: "Publish test results"
         uses: peaceiris/actions-gh-pages@v3.7.3
@@ -91,4 +91,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
+          PUBLISH_DIR: ./taskapitest-20240717185816110
