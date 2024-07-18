@@ -42,7 +42,7 @@ jobs:
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './build/reports/gatling'
+          publish_dir: ./build/reports/gatling
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -72,14 +72,14 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: gatling report
-          path: .taskapitest-20240717185816110
+          path: ./build/reports/gatling
 
       - name: "Publish test results"
         uses: peaceiris/actions-gh-pages@v3.7.3
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './taskapitest-20240717185816110'
+          publish_dir: ./build/reports/gatling
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -91,4 +91,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./taskapitest-20240717185816110
+          PUBLISH_DIR: ./build/reports/gatling
