@@ -79,7 +79,7 @@ jobs:
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './build/reports/gatling'
+          publish_dir: ./build/reports/gatling/taskapitest-20240717185816110
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -91,4 +91,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
+          PUBLISH_DIR: ./build/reports/gatling/taskapitest-20240717185816110
