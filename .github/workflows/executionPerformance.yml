@@ -8,8 +8,6 @@ on:
         description: 'Select the test suite to run'
         required: true
         options:
-          - computerdatabase.ComputerDatabaseSimulation
-          - demostore.DemostoreApiSimulation
           - pokemonapi.PokemonApiTest
           - taskapi.TaskApiTest
         default: 'pokemonapi.PokemonApiTest'
@@ -20,78 +18,6 @@ on:
         default: '10'
 
 jobs:
-  execcomputerdatabase:
-    runs-on: ubuntu-latest
-    name: Execution Performance Computer Database
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
-
-      - name: Execute test
-        run: gradle gatlingRun --simulation=${{ inputs.testSuite }} -DconcurrentUsers=${{ inputs.concurrent }}
-
-      - name: Save report
-        if: ${{always()}}
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: gatling report
-          path: ./build/reports/gatling
-      - name: "Publish test results computerdatabase"
-        uses: peaceiris/actions-gh-pages@v3.7.3
-        if: ${{ always() }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './build/reports/gatling'
-          keep_files: true
-          user_name: bhurtado
-          user_email: betty.hurtado@gmail.com
-          publish_branch: gh_page
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
-  execdemostore:
-    runs-on: ubuntu-latest
-    name: Execution Performance Demo Store
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
-
-      - name: Execute test
-        run: gradle gatlingRun --simulation=${{ inputs.testSuite }} -DconcurrentUsers=${{ inputs.concurrent }}
-
-      - name: Save report
-        if: ${{always()}}
-        uses: actions/upload-artifact@v3.1.2
-        with:
-          name: gatling report
-          path: ./build/reports/gatling
-      - name: "Publish test results demostore"
-        uses: peaceiris/actions-gh-pages@v3.7.3
-        if: ${{ always() }}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './build/reports/gatling'
-          keep_files: true
-          user_name: bhurtado
-          user_email: betty.hurtado@gmail.com
-          publish_branch: gh_page
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v2
-        env:
-          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
   execpokemonapi:
     runs-on: ubuntu-latest
     name: Execution Performance Pokemon API
@@ -111,33 +37,33 @@ jobs:
         with:
           name: gatling report
           path: ./build/reports/gatling
-      - name: "Publish test results pokemonapi"
+      - name: "Publish test results"
         uses: peaceiris/actions-gh-pages@v3.7.3
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './build/reports/gatling'
+          publish_dir: ./build/reports/gatling/pokemonapitest-20240925215821386
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
-          publish_branch: gh_page
+          publish_branch: gh_pages
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
+          PUBLISH_DIR: ./build/reports/gatling/pokemonapitest-20240925215821386
   exectaskapi:
     runs-on: ubuntu-latest
     name: Execution Performance Task API
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-          
+
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v3
-          
+
       - name: Execute test
         run: gradle gatlingRun --simulation=${{ inputs.testSuite }} -DconcurrentUsers=${{ inputs.concurrent }}
 
@@ -148,12 +74,12 @@ jobs:
           name: gatling report
           path: ./build/reports/gatling
 
-      - name: "Publish test results taskapi"
+      - name: "Publish test results"
         uses: peaceiris/actions-gh-pages@v3.7.3
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './taskapitest-20240717185816110'
+          publish_dir: ./build/reports/gatling/taskapitest-20240925212954743
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -165,4 +91,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
+          PUBLISH_DIR: ./build/reports/gatling/taskapitest-20240925212954743
