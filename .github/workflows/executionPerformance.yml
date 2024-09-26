@@ -90,5 +90,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
+          PUBLISH_BRANCH: gh_page
           PUBLISH_DIR: ./build/reports/gatling/taskapitest-20240926210542301
