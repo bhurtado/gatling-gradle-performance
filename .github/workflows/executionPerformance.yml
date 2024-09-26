@@ -38,7 +38,7 @@ jobs:
           name: gatling report
           path: ./build/reports/gatling
       - name: "Publish test results"
-        uses: peaceiris/actions-gh_pages@v4
+        uses: peaceiris/actions-gh-pages@v4
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -49,7 +49,7 @@ jobs:
           publish_branch: gh_pages
       - name: Deploy report to Github Pages
         if: always()
-        uses: peaceiris/actions-gh_pages@v4
+        uses: peaceiris/actions-gh-pages@v4
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh_pages
@@ -75,7 +75,7 @@ jobs:
           path: ./build/reports/gatling
 
       - name: "Publish test results"
-        uses: peaceiris/actions-gh_pages@v3.7.3
+        uses: peaceiris/actions-gh-pages@v3.7.3
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -87,7 +87,7 @@ jobs:
 
       - name: Deploy report to Github Pages
         if: always()
-        uses: peaceiris/actions-gh_pages@v2
+        uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh_pages
