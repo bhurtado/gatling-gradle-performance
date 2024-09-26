@@ -18,13 +18,19 @@ public class TaskApiTest extends Simulation {
                 .feed(feeder)
                 .exec(http("POST Object")
                         .post("/objects")
-                        .body(StringBody("{ \"name\": \"#{name}\" }"))
+                        .body(StringBody("{ \"name\": \"#{name}\"," +
+                                " \"description\": \"#{description}\", " +
+                                "\"category\": \"#{category}\"," +
+                                " \"price\": #{price} }"))
                         .check(status().in(201, 200))
                         .check(jsonPath("$.id").saveAs("objectId")))
                 .pause(1)
                 .exec(http("PUT Object")
                         .put("/objects/#{objectId}")
-                        .body(StringBody("{\"name\": \"#{name} Updated\" }"))
+                        .body(StringBody("{ \"name\": \"#{name} Updated\", " +
+                                "\"description\": \"#{description} Updated\", " +
+                                "\"category\": \"#{category}\", " +
+                                "\"price\": #{price} }"))
                         .check(status().in(200, 204)))
                 .pause(1)
                 .exec(http("GET Object")
@@ -32,7 +38,6 @@ public class TaskApiTest extends Simulation {
                         .check(status().is(200)));
 
         {
-            setUp(scn.injectOpen(atOnceUsers(10)).protocols(httpProtocol));
+                setUp(scn.injectOpen(atOnceUsers(10)).protocols(httpProtocol));
         }
-
 }
