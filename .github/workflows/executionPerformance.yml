@@ -46,13 +46,13 @@ jobs:
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
-          publish_branch: gh_pages
+          publish_branch: gh_page
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
+          PUBLISH_BRANCH: gh_page
           PUBLISH_DIR: ./build/reports/gatling/pokemonapitest-20240708225611631
   exectaskapi:
     runs-on: ubuntu-latest
@@ -83,12 +83,12 @@ jobs:
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
-          publish_branch: gh_pages
+          publish_branch: gh_page
 
       - name: Deploy report to Github Pages
         if: always()
         uses: peaceiris/actions-gh-pages@v2
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PUBLISH_BRANCH: gh-pages
+          PUBLISH_BRANCH: gh_page
           PUBLISH_DIR: ./build/reports/gatling/taskapitest-20240925214424558
