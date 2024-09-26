@@ -10,7 +10,7 @@ on:
         options:
           - pokemonapi.PokemonApiTest
           - taskapi.TaskApiTest
-        default: 'pokemonapi.PokemonApiTest'
+        default: 'taskapi.PokemonApiTest'
       concurrent:
         type: string
         description: 'Quantity of users'
@@ -53,7 +53,7 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling
+          PUBLISH_DIR: ./pokemonapitest-20240926191634473
   exectaskapi:
     runs-on: ubuntu-latest
     name: Execution Performance Task API
@@ -91,4 +91,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling/taskapitest-20240926153848148
+          PUBLISH_DIR: ./taskapitest-20240926153848148
