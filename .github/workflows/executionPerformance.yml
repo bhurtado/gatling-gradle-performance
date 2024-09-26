@@ -10,7 +10,7 @@ on:
         options:
           - pokemonapi.PokemonApiTest
           - taskapi.TaskApiTest
-        default: 'pokemonapi.PokemonApiTest'
+        default: 'taskapi.TaskApiTest'
       concurrent:
         type: string
         description: 'Quantity of users'
