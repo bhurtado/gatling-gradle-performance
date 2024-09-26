@@ -23,7 +23,7 @@ jobs:
     name: Execution Performance Pokemon API
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -42,7 +42,7 @@ jobs:
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/reports/gatling/pokemonapitest-20240925215821386
+          publish_dir: ./build/reports/gatling
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -53,13 +53,13 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling/pokemonapitest-20240925215821386
+          PUBLISH_DIR: ./build/reports/gatling
   exectaskapi:
     runs-on: ubuntu-latest
     name: Execution Performance Task API
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
@@ -75,7 +75,7 @@ jobs:
           path: ./build/reports/gatling
 
       - name: "Publish test results"
-        uses: peaceiris/actions-gh-pages@v3.7.3
+        uses: peaceiris/actions-gh-pages@v4
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -87,7 +87,7 @@ jobs:
 
       - name: Deploy report to Github Pages
         if: always()
-        uses: peaceiris/actions-gh-pages@v2
+        uses: peaceiris/actions-gh-pages@v4
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
