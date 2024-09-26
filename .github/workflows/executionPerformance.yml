@@ -79,7 +79,7 @@ jobs:
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/reports/gatling/taskapitest-20240926153848148
+          publish_dir: ./build/reports/gatling
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
