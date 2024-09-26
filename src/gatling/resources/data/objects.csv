@@ -1,11 +1,11 @@
-name
-Object1
-Object2
-Object3
-Object4
-Object5
-Object6
-Object7
-Object8
-Object9
-Object10
+name,description,category,price
+Object1,"Descripción del objeto 1","Categoria1",100
+Object2,"Descripción del objeto 2","Categoria2",200
+Object3,"Descripción del objeto 3","Categoria3",300
+Object4,"Descripción del objeto 4","Categoria4",400
+Object5,"Descripción del objeto 5","Categoria5",500
+Object6,"Descripción del objeto 6","Categoria6",600
+Object7,"Descripción del objeto 7","Categoria7",700
+Object8,"Descripción del objeto 8","Categoria8",800
+Object9,"Descripción del objeto 9","Categoria9",900
+Object10,"Descripción del objeto 10","Categoria10",1000
