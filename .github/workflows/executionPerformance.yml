@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Execute test
         run: gradle gatlingRun --simulation=${{ inputs.testSuite }} -DconcurrentUsers=${{ inputs.concurrent }}
@@ -62,7 +62,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup Gradle
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/actions/setup-gradle@v4
 
       - name: Execute test
         run: gradle gatlingRun --simulation=${{ inputs.testSuite }} -DconcurrentUsers=${{ inputs.concurrent }}
@@ -79,7 +79,7 @@ jobs:
         if: ${{ always() }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build/reports/gatling/taskapitest-20240925212954743
+          publish_dir: ./build/reports/gatling/taskapitest-20240926153848148
           keep_files: true
           user_name: bhurtado
           user_email: betty.hurtado@gmail.com
@@ -91,4 +91,4 @@ jobs:
         env:
           PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PUBLISH_BRANCH: gh-pages
-          PUBLISH_DIR: ./build/reports/gatling/taskapitest-20240925212954743
+          PUBLISH_DIR: ./build/reports/gatling/taskapitest-20240926153848148
