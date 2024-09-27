@@ -1,67 +1,67 @@
 {
     "name": "All Requests",
     "numberOfRequests": {
-        "total": 90,
-        "ok": 90,
+        "total": 60,
+        "ok": 60,
         "ko": 0
     },
     "minResponseTime": {
-        "total": 249,
-        "ok": 249,
+        "total": 443,
+        "ok": 443,
         "ko": 0
     },
     "maxResponseTime": {
-        "total": 744,
-        "ok": 744,
+        "total": 1764,
+        "ok": 1764,
         "ko": 0
     },
     "meanResponseTime": {
-        "total": 475,
-        "ok": 475,
+        "total": 984,
+        "ok": 984,
         "ko": 0
     },
     "standardDeviation": {
-        "total": 128,
-        "ok": 128,
+        "total": 395,
+        "ok": 395,
         "ko": 0
     },
     "percentiles1": {
-        "total": 482,
-        "ok": 482,
+        "total": 902,
+        "ok": 902,
         "ko": 0
     },
     "percentiles2": {
-        "total": 560,
-        "ok": 560,
+        "total": 1339,
+        "ok": 1339,
         "ko": 0
     },
     "percentiles3": {
-        "total": 677,
-        "ok": 677,
+        "total": 1633,
+        "ok": 1633,
         "ko": 0
     },
     "percentiles4": {
-        "total": 727,
-        "ok": 727,
+        "total": 1711,
+        "ok": 1711,
         "ko": 0
     },
     "group1": {
     "name": "t < 800 ms",
     "htmlName": "t < 800 ms",
-    "count": 90,
-    "percentage": 100.0
+    "count": 22,
+    "percentage": 36.666666666666664
 },
     "group2": {
     "name": "800 ms <= t < 1200 ms",
     "htmlName": "t >= 800 ms <br> t < 1200 ms",
-    "count": 0,
-    "percentage": 0.0
+    "count": 21,
+    "percentage": 35.0
 },
     "group3": {
     "name": "t >= 1200 ms",
     "htmlName": "t >= 1200 ms",
-    "count": 0,
-    "percentage": 0.0
+    "count": 17,
+    "percentage": 28.333333333333332
 },
     "group4": {
     "name": "failed",
@@ -70,8 +70,8 @@
     "percentage": 0.0
 },
     "meanNumberOfRequestsPerSecond": {
-        "total": 22.5,
-        "ok": 22.5,
+        "total": 8.571428571428571,
+        "ok": 8.571428571428571,
         "ko": 0
     }
 }
