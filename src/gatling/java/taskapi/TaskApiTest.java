@@ -38,6 +38,6 @@ public class TaskApiTest extends Simulation {
                         .check(status().is(200)));
 
         {
-                setUp(scn.injectOpen(atOnceUsers(10)).protocols(httpProtocol));
+                setUp(scn.injectOpen(atOnceUsers(30)).protocols(httpProtocol));
         }
 }
