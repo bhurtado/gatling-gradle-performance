@@ -1,9 +1,0 @@
-{
-  "name": "#{objectName}",
-  "data": {
-    "year": "#{year}",
-    "price": "#{price}",
-    "CPU model": "#{cpuModel}",
-    "Hard disk size": "#{hardDisk}"
-  }
-}

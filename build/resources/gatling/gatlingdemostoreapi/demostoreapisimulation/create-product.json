@@ -1,7 +1,0 @@
-{
-  "name": "#{productName}",
-  "description": "#{productDescription}",
-  "price": "#{productPrice}",
-  "categoryId": #{productCategoryId},
-"image": "#{productImage}"
-}
